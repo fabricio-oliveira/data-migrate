@@ -39,7 +39,7 @@ module DataMigrate
       end
 
       def migrations_path
-        "db/data"
+        DataMigrate.config.data_migrations_path || "db/data"
       end
 
       ##
