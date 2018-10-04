@@ -41,6 +41,7 @@ module DataMigrate
         "db/data"
       end
 
+
       ##
       # Provides the full migrations_path filepath
       # @return (String)
@@ -64,6 +65,13 @@ module DataMigrate
       # @return (MatchData)
       def match(filename)
         /(\d{14})_(.+)\.rb/.match(filename)
+      end
+
+      def smart_migrate(path, version)
+        #TODO smart migrate
+        result = migrate(path, version)
+        println("value migrate #{result}")
+        result
       end
 
       private
