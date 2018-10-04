@@ -75,7 +75,7 @@ module DataMigrate
       def smart_migrate(path, version)
         #TODO smart migrate
         result = migrate(path, version)
-        println("value migrate #{result}")
+        print("value migrate #{result}")
         result
       end
     end
