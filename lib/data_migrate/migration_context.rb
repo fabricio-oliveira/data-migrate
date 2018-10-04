@@ -1,5 +1,6 @@
 module DataMigrate
   class MigrationContext < ActiveRecord::MigrationContext
+
     def initialize(migrations_paths = "db/data")
       @migrations_paths = migrations_paths || "db/data"
     end
@@ -32,6 +33,13 @@ module DataMigrate
     def current_version
       get_all_versions.max || 0
     rescue ActiveRecord::NoDatabaseError
+    end
+
+    def smart_migrate
+      #TODO implement smart migrate
+      result = migrate
+      println("value migrate #{result}")
+      result
     end
 
     def migration_files

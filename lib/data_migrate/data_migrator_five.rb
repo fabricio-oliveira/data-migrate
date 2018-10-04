@@ -71,6 +71,13 @@ module DataMigrate
         ActiveRecord::Base.configurations[Rails.env || "development"] ||
           ENV["DATABASE_URL"]
       end
+
+      def smart_migrate
+        #TODO smart migrate
+        result = migrate
+        println("value migrate #{result}")
+        result
+      end
     end
 
     private

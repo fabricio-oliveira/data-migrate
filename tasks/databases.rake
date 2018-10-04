@@ -259,6 +259,13 @@ namespace :data do
     Rake::Task["data:dump"].invoke
   end
 
+  #TODO add desc coerent
+  desc 'safe Migrate data migrations... (options: VERSION=x, VERBOSE=false)'
+  task :smart_migrate => :environment do
+    DataMigrate::Tasks::DataMigrateTasks.smart_migrate
+    Rake::Task["data:dump"].invoke
+  end
+
   namespace :migrate do
     desc  'Rollbacks the database one migration and re migrate up (options: STEP=x, VERSION=x).'
     task :redo => :environment do
@@ -299,6 +306,7 @@ namespace :data do
       DataMigrate::StatusService.dump(connection)
     end
   end
+
 
   desc 'Rolls the schema back to the previous version (specify steps w/ STEP=n).'
   task :rollback => :environment do
