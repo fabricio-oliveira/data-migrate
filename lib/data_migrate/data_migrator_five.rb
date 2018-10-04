@@ -72,9 +72,9 @@ module DataMigrate
           ENV["DATABASE_URL"]
       end
 
-      def smart_migrate
+      def smart_migrate(path, version)
         #TODO smart migrate
-        result = migrate
+        result = migrate(path, version)
         println("value migrate #{result}")
         result
       end

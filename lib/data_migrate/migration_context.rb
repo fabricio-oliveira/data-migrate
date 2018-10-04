@@ -35,9 +35,9 @@ module DataMigrate
     rescue ActiveRecord::NoDatabaseError
     end
 
-    def smart_migrate
-      #TODO implement smart migrate
-      result = migrate
+    def smart_migrate(version)
+      #TODO smart migrate
+      result = migrate(version)
       println("value migrate #{result}")
       result
     end
