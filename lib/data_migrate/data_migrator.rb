@@ -72,7 +72,10 @@ module DataMigrate
         result = migrate(path, version)
         println("value migrate #{result}")
         result
+      rescue => e
+        printl("Fail run smart migrate #{e.message}")
       end
+
 
       private
 
